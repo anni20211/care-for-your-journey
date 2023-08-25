@@ -41,7 +41,6 @@ export const GetHotel=async(req,res,next)=>{
        next(error);
      }
 }
-// queries=>(/hotels/countbycity?cities=mumbai,delhi,rajsthan)
 export const CountByCity=async(req,res,next)=>{
   const cities=req.query.cities.split(",");
   try{

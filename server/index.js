@@ -23,19 +23,13 @@ const reqconnection = async () => {
 mongoose.connection.on("disconnected", () => {
   console.log("database is disconnected");
 });
-
-//middlewares
-
 app.use(cookieParser());
-app.use(cors());//instead of proxy you can
+app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 app.use("/api/users", usersRoute);
-
-//error handling using middlewares
-
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
   const errorMessage = err.message || "Somthing went wrong";

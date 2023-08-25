@@ -28,7 +28,7 @@ export const login = async (req, res, next) => {
     const {password,isAdmin,...otherDatails}=user._doc;
     res.cookie("access_token",token,{
       httpOnly:true,
-    }).status(200).json({details:{...otherDatails},isAdmin});//password and isAdmin will never visible to userside
+    }).status(200).json({details:{...otherDatails},isAdmin});
   } catch (error) {
     next(error);
   }
